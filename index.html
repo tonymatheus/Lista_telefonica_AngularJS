@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="listaTelefonica" lang="pt-br">
+  <title>ListaTelefonica</title>
+  <meta charset="utf-8" />
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous"
+  />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./angular.js"></script>
+  <script src="./App.js"></script>
+  <body ng-controller="listaTelefonica">
+    <div class="jumbotron">
+      <h1>{{app}}</h1>
+      <table class="table table-striped">
+        <tr>
+          <th>Nome</th>
+          <th>Telefone</th>
+        </tr>
+        <tr ng-repeat="contato in contatos">
+          <td>{{contato.nome}}</td>
+          <td>{{contato.telefone}}</td>
+        </tr>
+      </table>
+      <hr />
+      <input
+        class="form-control"
+        type="text"
+        ng-model="contato.nome"
+        placeholder="Insira um nome"
+      />
+      <input
+        class="form-control"
+        type="text"
+        ng-model="contato.telefone"
+        placeholder="Insira um Telefone"
+      />
+      <button
+        class="btn btn-primary btn-block"
+        ng-click="adicionarContato(contato)"
+      >
+        Adicionar contato
+      </button>
+    </div>
+    {{contato}}
+  </body>
+</html>
